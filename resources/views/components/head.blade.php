@@ -8,11 +8,11 @@
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <!-- JS Implementing Plugins -->
-    <script type="module" src="{{ asset('js/pages/about.js') }}"></script>
-    <script type="module" src="{{ asset('js/pages/jquery.min.js') }}"></script>
+    <script type="module" src="{{ mix('js/pages/about.js') }}"></script>
+    <script type="module" src="{{ mix('js/pages/jquery.min.js') }}"></script>
 
     @stack('js')
 
@@ -26,7 +26,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pages/style.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/pages/style.css') }}" rel="stylesheet">
 
     @stack('css')
 
