@@ -24,7 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pages/style.css') }}" rel="stylesheet">
 
     @stack('css')
