@@ -1,0 +1,21 @@
+<html lang="ja">
+  <body>
+    <main>
+      <h1 id="id"></h1>
+      <hr>
+      <div id="item"></div>
+    </main>
+    <script>
+      fetch("https://skywalkwarehouse.microcms.io/api/v1/products/001", {
+        headers: {
+          "X-API-KEY": "baf902b0-ca4f-4723-86a0-7dc07f4e72a1"
+        }
+      })
+        .then(res => res.json())
+        .then(json => {
+          document.getElementById("id").innerHTML = json.id;
+          document.getElementById("item").innerHTML = json.item;
+        })
+   </script>
+  </body>
+</html>
