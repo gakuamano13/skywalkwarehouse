@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LineItemController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Auth\Login\LoginController;
+use App\Http\Controllers\Auth\Register\RegisterController;
+
 
 
 Route::group(['prefix' => 'main', 'as' => 'product.'], function() {
@@ -13,15 +16,32 @@ Route::group(['prefix' => 'main', 'as' => 'product.'], function() {
         Route::get('/product/{id}', [ProductController::class, 'show'])->name('show');
 });
 
-Route::get('/auth/login', function () {
-    return view('auth.login.index');
-});
+// Route::get('/auth/login', function () {
+//     return view('auth.login.index');
+// });
 
 Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::view('/auth/login', 'auth.login.index'); // viewを直指定するやつ
+// 認証ページ（LOGIN / REGISTER）
+
+Route::group(['prefix' => 'user/', 'as' => 'auth.'], function() {
+    Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+});
+
+// Route::view('/auth/test/login', 'auth.login.index');
+// viewを直指定するやつ
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::group(['middleware' => 'auth:admins','prefix' => 'dashboard/users', 'as' => 'dashboard.users.'], function() {

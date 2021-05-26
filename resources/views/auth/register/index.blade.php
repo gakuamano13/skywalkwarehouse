@@ -25,21 +25,32 @@
 
     <div class="d-lg-flex half">
 
-    <div class="bg order-1 order-md-2" style="background-image: url('{{ asset('images/login.jpg') }}');"></div>
-    <div class="contents order-2 order-md-1">
+        <div class="bg order-1 order-md-1" style="background-image: url('{{ asset('images/login.jpg') }}');"></div>
+        <div class="contents order-2 order-md-2">
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
 
                     <div class="mb-4">
-                        <h3 class="text-center mb-4">LOGIN</h3>
+                        <h3 class="text-center mb-4">REGISTER</h3>
                         <p class="mb-4"></p>
                     </div>
 
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
+
                         <div class="form-group first">
+                            <input id="name" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
 
                                 <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -50,7 +61,7 @@
                                 @enderror
                         </div>
 
-                        <div class="form-group last mb-3">
+                        <div class="form-group">
                             <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                             @error('password')
@@ -60,11 +71,15 @@
                             @enderror
                         </div>
 
-                    <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                        <div class="form-group last mb-3">
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                        </div>
 
-                    <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+                    <input type="submit" value="Regiser" class="btn btn-block btn-primary">
 
-                    <div class="social-login mt-5">
+                    {{-- <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span> --}}
+
+                    {{-- <div class="social-login mt-5">
                         <a href="#" class="facebook btn d-flex justify-content-center align-items-center mt-4">
                         <span class="mr-3"><i class="fab fa-facebook-f"></i></span> Login with Facebook
                         </a>
@@ -74,7 +89,7 @@
                         <a href="#" class="google btn d-flex justify-content-center align-items-center mt-4">
                         <span class="mr-3"><i class="fab fa-google"></i></span> Login with  Google
                         </a>
-                    </div>
+                    </div> --}}
                     </form>
                 </div>
             </div>

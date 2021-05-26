@@ -8,10 +8,10 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{ route('register') }}"><label>新規登録</label></a>
+                        <a class="nav-link" href="{{ route('auth.register.index') }}"><label>新規登録</label></a>
                     </li>
                     <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{ route('login') }}"><label>ログイン</label></a>
+                        <a class="nav-link" href="{{ route('auth.login.index') }}"><label>ログイン</label></a>
                     </li>
                     <li class="nav-item mr-5">
                         <a class="nav-link" href="{{ route('login') }}"><i class="far fa-heart"></i></a>

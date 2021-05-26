@@ -10,10 +10,6 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
 
-    <!-- JS Implementing Plugins -->
-    <script type="module" src="{{ mix('js/pages/about.js') }}"></script>
-    <script type="module" src="{{ mix('js/pages/jquery.min.js') }}"></script>
-
     @stack('js')
 
     <!-- Fonts -->
@@ -26,7 +22,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/pages/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ mix('css/pages/style.css') }}" rel="stylesheet"> --}}
 
     @stack('css')
 
